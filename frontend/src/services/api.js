@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://liga-diamente.onrender.com/api',
 })
 
 // Adjunta el JWT en cada petición
@@ -11,8 +11,8 @@ api.interceptors.request.use(config => {
   return config
 })
 
-// Redirige al login SOLO si el token expiró (401 = no autenticado)
-// El 403 significa "sin permiso" — no debe cerrar sesión
+// Redirige al login SOLO si el token expiró
+
 api.interceptors.response.use(
   res => res,
   err => {
